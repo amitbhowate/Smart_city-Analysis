@@ -48,9 +48,17 @@ data-driven decisions to improve urban living conditions.
 🔹 Create a gauge chart to display CO2_Emissions_Tons with warning levels.
 🔹 Task: Format visuals for clarity and impact.
 
+📌 Session 6: Dashboard Finalization & Presentation
+🔹 Optimize visuals & layout for a professional look.
+🔹 Ensure all filters, slicers, and interactions work smoothly.
+🔹 Task: Students present their dashboards, explaining key insights.
+👏 Keep exploring, keep learning, and keep building amazing dashboards! �
 
 
--- ************************************************* Smart City Analysis ************************************************************************* 
+
+
+
+
 
 --  Create schema
 
@@ -125,8 +133,8 @@ group by Monthly_Accident
    Total_Accident,
    Dense_rank() over( order by Total_Accident desc) Ranks
    from Monthly_Accident;
-
--- Analysis Which City zone has the highest Accident According to Traffic_congestion_level
+   
+ Analysis Which City zone has the highest Accident According to Traffic_congestion_level
 
 With Traffic_Congestion as 
 (	Select 
@@ -141,7 +149,7 @@ With Traffic_Congestion as
 	Rank() over(partition by Traffic_congestion_level order by Total_Accident desc) as Ranks
 	from Traffic_Congestion;
 
--- Evaluate Total_no_Vehicle  are affecting  the Accident happened.
+Evaluate Total_no_Vehicle  are affecting  the Accident happened.
 
 Select Time,
 sum(Vehicle_count) as Total_Vehicle,
@@ -153,7 +161,8 @@ order by Total_Vehicle desc,Total_Accident desc;
 
 Select * from Accident;
 
--- Analyze Higher Avg_Speed is affecting the Accident 
+ 
+ Analyze Higher Avg_Speed is affecting the Accident 
 
 Select 
 City_Zone,
@@ -163,6 +172,7 @@ from
 Accident
 group by City_Zone
 Order by avg_speed desc;
+
 
 Select 
 Time,
@@ -233,11 +243,12 @@ group by City_Zone;
 
 
 
--- Pollution
+ Pollution
 
 Select * from Pollution;
 
--- Analyze the PM 2.5 level (particulate Matter) which is harmful for living being or sometime cause death, if proper measure are not taken. 
+ 
+ Analyze the PM 2.5 level (particulate Matter) which is harmful for living being or sometime cause death, if proper measure are not taken. 
 
 Select 
 City_Zone,
@@ -246,7 +257,7 @@ from Pollution
 Group by City_Zone
 order by PM_2_5 DESC;
 
--- PM 10 level which is less harmfull than PM 2.5 but gave little bit breathing issue.
+ PM 10 level which is less harmfull than PM 2.5 but gave little bit breathing issue.
 
 Select 
 City_Zone,sum(PM_10_LEVEL)as Total_PM_10,
@@ -255,7 +266,8 @@ from Pollution
 Group by City_Zone
 order by PM_10 DESC ;
 
--- AQI (Air Quality Index) Higher the AQI ,higher the  chance of breathing issue ,which create drastic situation for human being.
+ 
+ AQI (Air Quality Index) Higher the AQI ,higher the  chance of breathing issue ,which create drastic situation for human being.
 
 Select 
 City_Zone,
@@ -265,8 +277,4 @@ group by City_Zone
 order by Avg_AQI DESC
 ;
 
-📌 Session 6: Dashboard Finalization & Presentation
-🔹 Optimize visuals & layout for a professional look.
-🔹 Ensure all filters, slicers, and interactions work smoothly.
-🔹 Task: Students present their dashboards, explaining key insights.
-👏 Keep exploring, keep learning, and keep building amazing dashboards! �
+
